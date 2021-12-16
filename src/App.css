@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .App-logo {
@@ -35,4 +37,42 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.nav{
+  display: flex;
+  flex-direction: row;
+  background-color: silver;
+  padding-left: 20px;
+}
+
+.nombre{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  color: black;
+  font-size: 1.5em;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.links{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 10px;
+}
+
+.paginas{
+  display: flex;
+  justify-content: flex-end;
+  text-decoration: none;
+  color: black;
+}
+
+.carrito{
+  display: flex;
+  justify-content: flex-end;
+  text-align: end;
+  align-items: center;
+  margin-left: 10px;
 }
