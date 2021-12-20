@@ -39,40 +39,41 @@
   }
 }
 
-.nav{
+.nav{ /* div padre*/
   display: flex;
+  justify-content: flex-start;
   flex-direction: row;
   background-color: silver;
   padding-left: 20px;
 }
 
-.nombre{
+.nombre{ /* hijo <h3>*/
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
   color: black;
   font-size: 1.5em;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.links{
+.links{ /* hijos <p>*/
   display: flex;
-  justify-content: flex-end;
   align-items: center;
   margin: 10px;
 }
 
-.paginas{
+.divLinks{
   display: flex;
-  justify-content: flex-end;
+  border: 1px solid black;
+}
+
+.paginas{  /* hijos <a>*/
+  display: flex;
   text-decoration: none;
   color: black;
 }
 
 .carrito{
   display: flex;
-  justify-content: flex-end;
-  text-align: end;
   align-items: center;
   margin-left: 10px;
+  margin-right: 20px;
 }
