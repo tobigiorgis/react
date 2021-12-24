@@ -4,11 +4,7 @@ import estante from '../estante.jpg'
 function ItemCount ({stock, initial, onAdd}){
 
 const [count, setCount] = useState(initial)
-/*const [countStock, setStock] = useState(stock)
 
-let maxStock = () => {setStock(countStock == 0 ? countStock : countStock - 1) || (setCount(countStock > 0 ? count +1 : count))}
-let minStock = () => {setStock(countStock == stock ? countStock : countStock + 1) || (setCount(count == 1 ? count : count - 1))}
-*/
 let countStockMas = () => {setCount(count < stock ? count + 1 : count)}
 let countStockMenos = () => {setCount(count > 1 ? count - 1 : count)}
 
@@ -31,6 +27,3 @@ let countStockMenos = () => {setCount(count > 1 ? count - 1 : count)}
 export default ItemCount
 
 
-function Item ({stock,initial, onAdd}){
-    
-}
