@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import estante from '../estante.jpg'
 
 function ItemCount ({stock, initial, onAdd}){
 
@@ -11,7 +10,6 @@ let countStockMenos = () => {setCount(count > 1 ? count - 1 : count)}
 
     return (
         <div className="divProduct">
-            <img className="imgEstante" src={estante}></img>
             <div className="divEstado">
                 <button className="boton1" onClick={countStockMenos}>-</button>
                 <h2 className="hConteo">{`${count}`}</h2>

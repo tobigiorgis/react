@@ -6,7 +6,7 @@ const ItemList = ({ detail }) => {
     return (
         <ul>
             {detail.map((item) => (
-                <Item item={item} />
+                <Item item={item} key={item.id}/>
             ))}
         </ul>
     )

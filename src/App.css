@@ -2,6 +2,7 @@
   text-align: center;
   display: flex;
   flex-direction: column;
+  background-color: #fafafa;
 }
 
 .App-logo {
@@ -41,9 +42,13 @@
 
 .nav{ /* div padre*/
   display: flex;
+  width: 100%;
   flex-direction: row;
   background-color: silver;
   padding-left: 20px;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 1;
 }
 
 .nombre{ /* hijo <h3>*/
@@ -60,9 +65,13 @@
   justify-content: flex-end;
   margin: 10px;
 }
+.toDetail{
+  color: black;
+}
 
 .divLinks{ /* padres <p> */
   display: flex;
+  margin-right: 30px;
 }
 
 .paginas{  /* hijos <a>*/
@@ -81,17 +90,15 @@
 .productos{
   font-weight: bold;
   font-size: 30px;
+  margin: 90px;
 }
 
 .imgEstante{
   width: 30vw;
   height: 25vh;
-  border-radius: 25px;
+  border-radius: 8px;
 }
 
-.imgEstante:hover{
-  transform: scale(1.4);
-}
 
 .divProduct{
   display: flex;
@@ -160,4 +167,38 @@
 
 .btnAgregar:hover{
   transform: scale(1.1);
+}
+
+.links{
+  text-decoration: none;
+  color: black;
+  font-weight: 1000;
+}
+
+.modelo{
+  list-style: none;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.precio{
+  list-style: none;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.ItemDiv{
+  margin: 30px;
+  width: auto;
+  display: inline-block;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: -1px 16px 35px -1px rgba(0,0,0,0.26);
+  background-color: white;
+}
+
+.ItemDiv:hover{
+  transform: scale(1.1);
+  transition: 0.5s ease-in-out;
 }
