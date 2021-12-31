@@ -16,7 +16,7 @@ let countStockMenos = () => {setCount(count > 1 ? count - 1 : count)}
                 <button className="boton2" onClick={countStockMas}>+</button>
             </div>
             <div className="divAgregar">
-                <button className="btnAgregar" onClick={onAdd}>Agregar al carrito</button>
+                <button className="btnAgregar" onClick={onAdd}>AGREGAR AL CARRITO</button>
             </div>
         </div>
     )

@@ -3,16 +3,16 @@ import ItemCount from './ItemCount'
 import { Link } from 'react-router-dom'
 
 
-const Item = ({ item, id }) => {
+const Item = ({ item }) => {
     return (
-        <Link className='toDetail' to={`productos/${id}`}>
         <div className='ItemDiv'>
-            <div>{item.imagen}</div>
-            <li className='modelo'>{item.modelo}</li>
-            <li className='precio'>{item.precio}</li>
-            <ItemCount stock={item.stock} initial={1}/>
-        </div>
+        <Link className='toDetail' to={`/producto/${item?.id}`}>
+            <img src={item?.imagen} alt={item?.modelo} className='imgEstante'></img>
+            <li className='modelo'>{item?.modelo}</li>
+            <li className='precio'>{item?.precio}</li>
         </Link>
+            <ItemCount stock={item?.stock} initial={1}/>
+        </div>
     )
 }
 
