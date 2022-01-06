@@ -7,7 +7,6 @@ const [count, setCount] = useState(initial)
 let countStockMas = () => {setCount(count < stock ? count + 1 : count)}
 let countStockMenos = () => {setCount(count > 1 ? count - 1 : count)}
 
-
     return (
         <div className="divProduct">
             <div className="divEstado">
