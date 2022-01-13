@@ -1,29 +1,28 @@
 import React from 'react'
 import ItemCount from './ItemCount'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 
 
 const ItemDetail = (item) => {
+    let stock = item.stock
 
-    const [added, setAdded] = useState(false)
-    const onAdd = () => {
-        setAdded(true)
+    const [newcount, setNewcount] = useState(0)
+    const onAdd = (count) => {
+        setNewcount(count)
     }
     
-    useEffect(() => {
-        console.log('added', added);
-    }, [added])
     return (
         <div>
             <div className='itemDivDetail'>
                 <img src={item?.imagen} alt={item?.modelo} className='imgEstante'></img>
                 <li className='modelo'>{item?.modelo}</li>
                 <li className='precio'>${item?.precio}</li>
-                {!added &&
+                {newcount >= 0  ? 
                     <ItemCount stock={item?.stock} initial={1} onAdd={onAdd}/>
-                }
-                {added &&
+                    : newcount >= stock ?
+                    <div className="divAgregado">SIN STOCK</div>
+                    :
                     <div className="divAgregado">AGREGADO AL CARRITO!</div>
                 }
             </div>

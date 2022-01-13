@@ -3,9 +3,13 @@ import { useParams } from 'react-router-dom'
 import ItemDetail from './ItemDetail'
 import { useState, useEffect } from 'react'
 import data from '../data/data'
+import { useContext } from 'react'
+import CartContext from '../context/CartContext'
 
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState({})
+
+    const {cart} = useContext(CartContext)
 
     const {itemId} = useParams()
     console.log(itemId);

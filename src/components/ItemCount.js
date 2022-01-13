@@ -1,11 +1,30 @@
 import React, {useState} from 'react'
+import CartContext from '../context/CartContext'
+import { useContext } from 'react'
 
-function ItemCount ({stock, initial, onAdd}){
+
+function ItemCount ({stock, initial, onAdd, item, newcount}){
+
+
+const clickHandlerC = () => {
+    const itemCart = {
+        imagen: item.imagen,
+        modelo: item.modelo,
+        precio: item.precio,
+        cantidad: {newcount},
+        id: item.id
+    }
+    addToC(itemCart)
+}
 
 const [count, setCount] = useState(initial)
 
 let countStockMas = () => {setCount(count < stock ? count + 1 : count)}
 let countStockMenos = () => {setCount(count > 1 ? count - 1 : count)}
+
+const {setCart, cart} = useContext(CartContext)
+const {addToC, list} = useContext(CartContext)
+
 
     return (
         <div className="divProduct">
@@ -15,7 +34,7 @@ let countStockMenos = () => {setCount(count > 1 ? count - 1 : count)}
                 <button className="boton2" onClick={countStockMas}>+</button>
             </div>
             <div className="divAgregar">
-                <button className="btnAgregar" onClick={onAdd}>AGREGAR AL CARRITO</button>
+                <button className="btnAgregar" onClick={ () => {clickHandlerC();onAdd(); setCart(cart + count)}}>AGREGAR AL CARRITO</button>
             </div>
         </div>
     )
