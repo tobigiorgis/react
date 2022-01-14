@@ -19,7 +19,7 @@ const ItemDetail = (item) => {
                 <li className='modelo'>{item?.modelo}</li>
                 <li className='precio'>${item?.precio}</li>
                 {newcount >= 0  ? 
-                    <ItemCount stock={item?.stock} initial={1} onAdd={onAdd}/>
+                    <ItemCount stock={item?.stock} initial={1} onAdd={onAdd} item={item} newcount={newcount}/>
                     : newcount >= stock ?
                     <div className="divAgregado">SIN STOCK</div>
                     :

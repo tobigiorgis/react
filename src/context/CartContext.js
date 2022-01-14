@@ -23,11 +23,12 @@ export const CartContextProvider = ({children}) => {
 
     }
 
+    console.log(cartRender);
     return (
             <CartContext.Provider value={
                 {cart,
                 setCart,
-                renderContext}
+                cartHandler}
             }>
                 { children }
             </CartContext.Provider>

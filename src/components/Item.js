@@ -2,8 +2,7 @@ import React from 'react'
 import ItemCount from './ItemCount'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
-import CartContext from '../context/CartContext'
-import { useContext } from 'react'
+
 
 
 const Item = ({ item, stock }) => {
@@ -20,7 +19,7 @@ const Item = ({ item, stock }) => {
             <li className='precio'>${item?.precio}</li>
         </Link>
         {newcount >= 0  ? 
-                    <ItemCount stock={item?.stock} initial={1} onAdd={onAdd}/>
+                    <ItemCount stock={item?.stock} initial={1} onAdd={onAdd} item={item} newcount={newcount}/>
                     : newcount >= stock ?
                     <div className="divAgregado">SIN STOCK</div>
                     :

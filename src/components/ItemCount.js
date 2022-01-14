@@ -11,10 +11,10 @@ const clickHandlerC = () => {
         imagen: item.imagen,
         modelo: item.modelo,
         precio: item.precio,
-        cantidad: {newcount},
+        cantidad: {count},
         id: item.id
     }
-    addToC(itemCart)
+    cartHandler(itemCart)
 }
 
 const [count, setCount] = useState(initial)
@@ -23,7 +23,7 @@ let countStockMas = () => {setCount(count < stock ? count + 1 : count)}
 let countStockMenos = () => {setCount(count > 1 ? count - 1 : count)}
 
 const {setCart, cart} = useContext(CartContext)
-const {addToC, list} = useContext(CartContext)
+const {cartHandler} = useContext(CartContext)
 
 
     return (

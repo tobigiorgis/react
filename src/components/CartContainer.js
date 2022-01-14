@@ -4,7 +4,7 @@ import { useContext } from 'react'
 
 const CartContainer = () => {
 
-    const {addToC, list} = useContext(CartContext)
+    const { list } = useContext(CartContext)
 
     return (
         <div>
