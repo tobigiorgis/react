@@ -33,6 +33,6 @@ const data = [
     imagen: cres,
     color: 'blanco',
     medida: '12cm x 10cm x 2.5cm x 30/40/60cm'}
-]
+    ]
 
 export default data

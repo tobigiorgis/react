@@ -1,14 +1,44 @@
 import React from 'react'
 import CartContext from '../context/CartContext'
 import { useContext } from 'react'
+import { Link } from 'react-router-dom'
 
 const CartContainer = () => {
 
-    const { list } = useContext(CartContext)
-
+    const { handleCartClearance, handleAddProduct, cartItems, handleRemoveProduct } = useContext(CartContext)
+    
+    
+    const totalPrice = cartItems.reduce((price, item) => price + item.quantity * item.precio, 0)
     return (
-        <div>
-            {list}
+        <div className='cart-items-null'>
+            {cartItems.length === 0 &&
+                <div>
+                    <p>No hay productos añadidos</p>
+                    <Link to='/productos'>Volver a productos</Link>
+                </div>
+}
+        
+            {cartItems.map((item) => (
+                <div className='itemCarrito' key={item.id}>
+                    <img 
+                        className='img-carrito'
+                        src={item.imagen}
+                        alt={item.modelo}
+                    ></img>
+                    <p className='mod-carrito'>{item.modelo}</p>
+                    <button className="botonR" onClick={() => handleRemoveProduct(item)}>-</button>
+                    <button className="botonA" onClick={() => handleAddProduct(item)}>+</button>
+                    <div className='desc-carrito'>
+                        ${item.precio} - Cantidad: {item.quantity}
+                    </div>
+                </div>
+            ))}
+            {cartItems.length !== 0 &&
+            <>
+            <button className="botonC" onClick= {handleCartClearance}> Eliminar todo del carrito!</button>
+            <div><b>TOTAL</b> / ${totalPrice}</div>
+            </>
+            }
         </div>
     )
 }

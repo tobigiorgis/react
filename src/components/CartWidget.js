@@ -14,7 +14,7 @@ const CartWidget = () => {
         <Link to="/cart">
         <div className="carrito">
             <img className='imgCarrito' src={cartIcon}/>
-            <span>{`${cart}`}</span>
+            {cart === 0 ? <span></span> : <span className='contador'>{`${cart}`}</span>}
         </div>
         </Link>
     )

@@ -9,26 +9,61 @@ export const CartContextProvider = ({children}) => {
 
     const [cart, setCart] = useState(0)
 
-    const [cartRender, setCartRender] = useState([])
-
-    const cartHandler = (itemCart) => {
-        setCartRender((prevCartRender) => {
-            return prevCartRender.concat(itemCart)
-        })
+    const [cartItems, setCartItems] = useState([])
+    const handleAddProduct = (product) =>{
+        const ProductExist = cartItems.find((item) => item.id === product.id)
+        if (ProductExist){
+        setCartItems(cartItems.map ((item) => item.id === product.id ? {...ProductExist, quantity: ProductExist.quantity + 1 }
+        : item)
+        )
+        } else {
+        setCartItems([...cartItems, {...product, quantity: 1}])
+        }
     }
 
-    const renderContext = {
-        list: cartRender,
-        addToC: cartHandler,
-
+    const handleRemoveProduct = (product) => {
+        const ProductExist = cartItems.find((item) => item.id === product.id)
+        if (ProductExist.quantity === 1){
+            setCartItems(cartItems.filter((item) => item.id !== product.id))
+        } else {
+            setCartItems(
+                cartItems.map((item) => item.id === product.id 
+                ? {...ProductExist, quantity: ProductExist.quantity - 1 }
+                : item
+            ))
+        }
     }
 
-    console.log(cartRender);
+    const handleCartClearance = () => {
+        setCartItems([])
+    }
+
+    // const [cartRender, setCartRender] = useState([])
+
+    // const cartHandler = (itemCart) => {
+    //     setCartRender((prevCartRender) => {
+    //         return prevCartRender.concat(itemCart)
+    //     })
+    // }
+
+    // const renderContext = {
+    //     list: cartRender,
+    //     addToC: cartHandler,
+
+    // }
+
+    // console.log(cartRender);
     return (
             <CartContext.Provider value={
                 {cart,
-                setCart,
-                cartHandler}
+                setCart, 
+                handleAddProduct,
+                cartItems,
+                setCartItems,
+                handleRemoveProduct,
+                handleCartClearance
+                //cartHandler
+                }
             }>
                 { children }
             </CartContext.Provider>

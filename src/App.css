@@ -434,7 +434,73 @@ span{
   font-weight: 800;
 }
 
-.cantCarrito{
-  text-decoration: none;
+
+.itemCarrito{
+  flex-direction: row;
+  display: flex;
+  padding: 5vw;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px gray solid;
+}
+.img-carrito{
+  width: 20vw;
+  height: 20vh;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.mod-carrito{
+display: flex;
+justify-content: flex-start;
+align-items: center;
+font-weight: bold;
+}
+.botonR{
+  display: flex;
+  width: 2vw;
+  height: 2vw;
   color: white;
+  background-color: black;
+  margin-right: -7vw;
+  border-radius: 5px;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.botonC{
+  width: 20vw;
+  height: 6vh;
+  border-radius: 10px;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+  color:black;
+  border-color: white;
+  background-color: white;
+  box-shadow: -1px 16px 35px -1px rgba(0,0,0,0.13);
+}
+.botonA{
+  display: flex;
+  width: 2vw;
+  height: 2vw;
+  color: white;
+  background-color: black;
+  border-radius: 5px;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.desc-carrito{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.cart-items-null{
+  display: inline-block;
+  flex-direction: column;
+  align-items: center;
+  padding: 20vh 10vw 10vw 10vh;
 }
