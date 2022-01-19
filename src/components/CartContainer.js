@@ -9,6 +9,7 @@ const CartContainer = () => {
     
     
     const totalPrice = cartItems.reduce((price, item) => price + item.quantity * item.precio, 0)
+    const subTotalprice = cartItems.reduce(( item ) => item.precio * item.quantity, 0)
     return (
         <div className='cart-items-null'>
             {cartItems.length === 0 &&
@@ -26,11 +27,14 @@ const CartContainer = () => {
                         alt={item.modelo}
                     ></img>
                     <p className='mod-carrito'>{item.modelo}</p>
+                    <div className='botonesCart'>
                     <button className="botonR" onClick={() => handleRemoveProduct(item)}>-</button>
-                    <button className="botonA" onClick={() => handleAddProduct(item)}>+</button>
+                    <button className="botonA" onClick={() => handleAddProduct(item, 1)}>+</button>
+                    </div>
                     <div className='desc-carrito'>
                         ${item.precio} - Cantidad: {item.quantity}
                     </div>
+                    {/* <div className='subtotal'>SUBTOTAL // {subTotalprice}</div> */}
                 </div>
             ))}
             {cartItems.length !== 0 &&

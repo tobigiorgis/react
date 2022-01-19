@@ -10,25 +10,27 @@ export const CartContextProvider = ({children}) => {
     const [cart, setCart] = useState(0)
 
     const [cartItems, setCartItems] = useState([])
-    const handleAddProduct = (product) =>{
-        const ProductExist = cartItems.find((item) => item.id === product.id)
-        if (ProductExist){
-        setCartItems(cartItems.map ((item) => item.id === product.id ? {...ProductExist, quantity: ProductExist.quantity + 1 }
+    const handleAddProduct = (product, count) =>{
+        setCart(cart + count)
+        const productExist = cartItems.find((item) => item.id === product.id)
+        if (productExist){
+        setCartItems(cartItems.map ((item) => item.id === product.id ? {...productExist, quantity: productExist.quantity + count }
         : item)
         )
         } else {
-        setCartItems([...cartItems, {...product, quantity: 1}])
+        setCartItems([...cartItems, {...product, quantity: count}])
         }
     }
 
     const handleRemoveProduct = (product) => {
-        const ProductExist = cartItems.find((item) => item.id === product.id)
-        if (ProductExist.quantity === 1){
+        setCart(cart - 1)
+        const productExist = cartItems.find((item) => item.id === product.id)
+        if (productExist.quantity === 1){
             setCartItems(cartItems.filter((item) => item.id !== product.id))
         } else {
             setCartItems(
                 cartItems.map((item) => item.id === product.id 
-                ? {...ProductExist, quantity: ProductExist.quantity - 1 }
+                ? {...productExist, quantity: productExist.quantity - 1 }
                 : item
             ))
         }
@@ -36,23 +38,9 @@ export const CartContextProvider = ({children}) => {
 
     const handleCartClearance = () => {
         setCartItems([])
+        setCart(0)
     }
 
-    // const [cartRender, setCartRender] = useState([])
-
-    // const cartHandler = (itemCart) => {
-    //     setCartRender((prevCartRender) => {
-    //         return prevCartRender.concat(itemCart)
-    //     })
-    // }
-
-    // const renderContext = {
-    //     list: cartRender,
-    //     addToC: cartHandler,
-
-    // }
-
-    // console.log(cartRender);
     return (
             <CartContext.Provider value={
                 {cart,
@@ -61,8 +49,7 @@ export const CartContextProvider = ({children}) => {
                 cartItems,
                 setCartItems,
                 handleRemoveProduct,
-                handleCartClearance
-                //cartHandler
+                handleCartClearance,
                 }
             }>
                 { children }

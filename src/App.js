@@ -7,7 +7,7 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import HomeContainer from './components/HomeContainer';
 import { CartContextProvider } from './context/CartContext';
 import CartContainer from './components/CartContainer';
-import {useState} from 'react'
+
 
 function App() {
 

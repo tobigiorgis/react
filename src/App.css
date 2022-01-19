@@ -450,6 +450,7 @@ span{
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  box-shadow: -1px 16px 35px -1px rgba(0,0,0,0.13);
 }
 .mod-carrito{
 display: flex;
@@ -463,10 +464,16 @@ font-weight: bold;
   height: 2vw;
   color: white;
   background-color: black;
-  margin-right: -7vw;
+  /* margin-right: -7vw; */
   border-radius: 5px;
   font-size: 20px;
   justify-content: center;
+  align-items: center;
+}
+.botonesCart{
+  display: flex;
+  width: 7vw;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -497,6 +504,7 @@ font-weight: bold;
   justify-content: flex-end;
   align-items: center;
 }
+
 
 .cart-items-null{
   display: inline-block;
