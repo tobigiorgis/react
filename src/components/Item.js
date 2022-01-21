@@ -5,21 +5,21 @@ import { useState } from 'react'
 
 
 
-const Item = ({ id, item, stock, modelo, precio, imagen }) => {
+const Item = ({ id, stock, modelo, precio, imagen, color, medida }) => {
     const [newcount, setNewcount] = useState(0)
     const onAdd = (count) => {
         setNewcount(count)
     }
-
+const newItem = {modelo, precio, id, color, imagen, stock, medida}
     return (
         <div className='ItemDiv'>
-        <Link className='toDetail' to={`/producto/${id}`}>
-            <img src={imagen} alt={modelo} className='imgEstante'></img>
-            <li className='modelo'>{modelo}</li>
-            <li className='precio'>${precio}</li>
+        <Link className='toDetail' to={`/producto/${newItem?.id}`}>
+            <img src={newItem?.imagen} alt={newItem?.modelo} className='imgEstante'></img>
+            <li className='modelo'>{newItem?.modelo}</li>
+            <li className='precio'>${newItem?.precio}</li>
         </Link>
         {newcount >= 0  ? 
-                    <ItemCount stock={item?.stock} initial={1} onAdd={onAdd} item={item} newcount={newcount}/>
+                    <ItemCount stock={newItem?.stock} item={newItem} initial={1} onAdd={onAdd} newcount={newcount}/>
                     : newcount >= stock ?
                     <div className="divAgregado">SIN STOCK</div>
                     :

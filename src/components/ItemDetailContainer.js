@@ -13,13 +13,11 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
     
-        return () => {
             const ref = doc(db, 'productos', itemId)
 
             getDoc(ref).then( querySnapshot => {
                 setProduct({...querySnapshot.data(), id: querySnapshot.id})
             })
-        }
     }, [])
 
     // useEffect(() => {

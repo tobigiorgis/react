@@ -14,7 +14,7 @@ export const CartContextProvider = ({children}) => {
         setCart(cart + count)
         const productExist = cartItems.find((item) => item.id === product.id)
         if (productExist){
-        setCartItems(cartItems.map ((item) => item.id === product.id ? {...productExist, quantity: productExist.quantity + count }
+        setCartItems(cartItems.map (( item ) => item.id === product.id ? {...productExist, quantity: productExist.quantity + count }
         : item)
         )
         } else {
@@ -29,7 +29,7 @@ export const CartContextProvider = ({children}) => {
             setCartItems(cartItems.filter((item) => item.id !== product.id))
         } else {
             setCartItems(
-                cartItems.map((item) => item.id === product.id 
+                cartItems.map(( item ) => item.id === product.id 
                 ? {...productExist, quantity: productExist.quantity - 1 }
                 : item
             ))

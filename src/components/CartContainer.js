@@ -8,7 +8,6 @@ const CartContainer = () => {
     const { handleCartClearance, handleAddProduct, cartItems, handleRemoveProduct } = useContext(CartContext)
     
     const totalPrice = cartItems.reduce(( price, item ) => price + item.quantity * item.precio, 0)
-    const subTotalPrice = cartItems.reduce(( item ) => item.quantity * item.precio, 0)
 
     return (
         <div className='cart-items-null'>
@@ -19,22 +18,22 @@ const CartContainer = () => {
                 </div>
 }
         
-            {cartItems.map((item, modelo, imagen, precio, id) => (
-                <div className='itemCarrito' key={id}>
+            {cartItems.map((item) => (
+                <div className='itemCarrito' key={item?.id}>
                     <img 
                         className='img-carrito'
-                        src={imagen}
-                        alt={modelo}
+                        src={item?.imagen}
+                        alt={item?.modelo}
                     ></img>
-                    <p className='mod-carrito'>{modelo}</p>
+                    <p className='mod-carrito'>{item?.modelo}</p>
                     <div className='botonesCart'>
-                    <button className="botonR" onClick={() => handleRemoveProduct(item)}>-</button>
+                    <button className="botonR" onClick={() => handleRemoveProduct(item, 1)}>-</button>
                     <button className="botonA" onClick={() => handleAddProduct(item, 1)}>+</button>
                     </div>
                     <div className='desc-carrito'>
-                    ${precio} - Cantidad: {item.quantity}
+                    ${item?.precio} - Cantidad: {item.quantity}
                     </div>
-                    <div className='subtotal'>SUBTOTAL // {subTotalPrice}</div>
+                    <div className='subtotal'>SUBTOTAL // {item?.precio * item.quantity}</div>
                 </div>
             ))}
             {cartItems.length !== 0 &&
