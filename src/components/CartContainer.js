@@ -1,40 +1,40 @@
 import React from 'react'
 import CartContext from '../context/CartContext'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const CartContainer = () => {
 
     const { handleCartClearance, handleAddProduct, cartItems, handleRemoveProduct } = useContext(CartContext)
     
-    
-    const totalPrice = cartItems.reduce((price, item) => price + item.quantity * item.precio, 0)
-    const subTotalprice = cartItems.reduce(( item ) => item.precio * item.quantity, 0)
+    const totalPrice = cartItems.reduce(( price, item ) => price + item.quantity * item.precio, 0)
+    const subTotalPrice = cartItems.reduce(( item ) => item.quantity * item.precio, 0)
+
     return (
         <div className='cart-items-null'>
             {cartItems.length === 0 &&
                 <div>
                     <p>No hay productos añadidos</p>
-                    <Link to='/productos'>Volver a productos</Link>
+                    <Link to='/productos'><button className='backToP'>Volver a productos</button></Link>
                 </div>
 }
         
-            {cartItems.map((item) => (
-                <div className='itemCarrito' key={item.id}>
+            {cartItems.map((item, modelo, imagen, precio, id) => (
+                <div className='itemCarrito' key={id}>
                     <img 
                         className='img-carrito'
-                        src={item.imagen}
-                        alt={item.modelo}
+                        src={imagen}
+                        alt={modelo}
                     ></img>
-                    <p className='mod-carrito'>{item.modelo}</p>
+                    <p className='mod-carrito'>{modelo}</p>
                     <div className='botonesCart'>
                     <button className="botonR" onClick={() => handleRemoveProduct(item)}>-</button>
                     <button className="botonA" onClick={() => handleAddProduct(item, 1)}>+</button>
                     </div>
                     <div className='desc-carrito'>
-                        ${item.precio} - Cantidad: {item.quantity}
+                    ${precio} - Cantidad: {item.quantity}
                     </div>
-                    {/* <div className='subtotal'>SUBTOTAL // {subTotalprice}</div> */}
+                    <div className='subtotal'>SUBTOTAL // {subTotalPrice}</div>
                 </div>
             ))}
             {cartItems.length !== 0 &&

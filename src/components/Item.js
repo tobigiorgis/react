@@ -5,7 +5,7 @@ import { useState } from 'react'
 
 
 
-const Item = ({ item, stock }) => {
+const Item = ({ id, item, stock, modelo, precio, imagen }) => {
     const [newcount, setNewcount] = useState(0)
     const onAdd = (count) => {
         setNewcount(count)
@@ -13,10 +13,10 @@ const Item = ({ item, stock }) => {
 
     return (
         <div className='ItemDiv'>
-        <Link className='toDetail' to={`/producto/${item?.id}`}>
-            <img src={item?.imagen} alt={item?.modelo} className='imgEstante'></img>
-            <li className='modelo'>{item?.modelo}</li>
-            <li className='precio'>${item?.precio}</li>
+        <Link className='toDetail' to={`/producto/${id}`}>
+            <img src={imagen} alt={modelo} className='imgEstante'></img>
+            <li className='modelo'>{modelo}</li>
+            <li className='precio'>${precio}</li>
         </Link>
         {newcount >= 0  ? 
                     <ItemCount stock={item?.stock} initial={1} onAdd={onAdd} item={item} newcount={newcount}/>

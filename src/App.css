@@ -512,3 +512,28 @@ font-weight: bold;
   align-items: center;
   padding: 20vh 10vw 10vw 10vh;
 }
+
+.backToP{
+  margin-top: 5vh;
+  border-color: black;
+  border-radius: 7px;
+  box-shadow: -1px 16px 35px -1px rgba(0,0,0,0.26);
+  background-color: black;
+  color: white;
+  width: 13vw;
+  height: 7vh;
+  font-size: 15px;
+}
+
+.backToP:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.upload{
+  display: inline-block;
+  width: 10vw;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20vh;
+}

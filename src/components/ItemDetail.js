@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 
 
-const ItemDetail = (item) => {
+const ItemDetail = ( item, modelo, precio, imagen, medida ) => {
     let stock = item.stock
 
     const [newcount, setNewcount] = useState(0)
@@ -15,11 +15,11 @@ const ItemDetail = (item) => {
     return (
         <div>
             <div className='itemDivDetail'>
-                <img src={item?.imagen} alt={item?.modelo} className='imgEstante'></img>
-                <li className='modelo'>{item?.modelo}</li>
-                <li className='precio'>${item?.precio}</li>
+                <img src={imagen} alt={modelo} className='imgEstante'></img>
+                <li className='modelo'>{modelo}</li>
+                <li className='precio'>${precio}</li>
                 {newcount >= 0  ? 
-                    <ItemCount stock={item?.stock} initial={1} onAdd={onAdd} item={item} newcount={newcount}/>
+                    <ItemCount stock={stock} initial={1} onAdd={onAdd} item={item} newcount={newcount}/>
                     : newcount >= stock ?
                     <div className="divAgregado">SIN STOCK</div>
                     :
@@ -28,7 +28,7 @@ const ItemDetail = (item) => {
             </div>
             <div className='descDetail'>
                 <h3>Info del Producto</h3>
-                <p><span>Medidas: </span>{item?.medida}</p>
+                <p><span>Medidas: </span>{medida}</p>
                 <p><span>Material:</span> Chapa 18</p>
                 <p><span>Color:</span> Blanco - Negro</p>
             </div>

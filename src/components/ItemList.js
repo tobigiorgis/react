@@ -5,8 +5,8 @@ import Item from './Item'
 const ItemList = ({ detail }) => {
     return (
         <ul>
-            {detail.map((item) => (
-                <Item item={item} key={item.id}/>
+            {detail?.map((item) => (
+                <Item {...item} key={item.id}/>
             ))}
         </ul>
     )
