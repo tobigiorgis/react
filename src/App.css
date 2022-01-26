@@ -625,3 +625,7 @@ span{
   height: 7vh;
   font-size: 15px;
 }
+
+.terminar:hover{
+  transform: scale(1.1);
+}

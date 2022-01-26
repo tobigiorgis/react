@@ -41,13 +41,12 @@ export const CartContextProvider = ({children}) => {
         setCartItems(cartItems.filter((item) => item.id !== product.id))
     }
 
-
-const [datos, setDatos] = useState([])
-
     const handleCartClearance = () => {
         setCartItems([])
         setCart(0)
     }
+
+    const totalPrice = cartItems.reduce(( price, item ) => price + item.quantity * item.precio, 0)
 
     return (
             <CartContext.Provider value={
@@ -59,8 +58,7 @@ const [datos, setDatos] = useState([])
                 handleRemoveProduct,
                 handleCartClearance,
                 removeButton,
-                datos,
-                setDatos
+                totalPrice
                 }
             }>
                 { children }
