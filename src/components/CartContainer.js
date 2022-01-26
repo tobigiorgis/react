@@ -1,15 +1,26 @@
 import React from 'react'
 import CartContext from '../context/CartContext'
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
+
 
 const CartContainer = () => {
 
-    const { handleCartClearance, handleAddProduct, cartItems, handleRemoveProduct } = useContext(CartContext)
+    const { handleCartClearance, handleAddProduct, cartItems, handleRemoveProduct, removeButton, datos, setDatos } = useContext(CartContext)
     
     const totalPrice = cartItems.reduce(( price, item ) => price + item.quantity * item.precio, 0)
 
+    const objectHandler = (item) => {
+        const orden = {
+            modelo: item.modelo,
+            cantidad: item.quantity,
+            total: {totalPrice}
+        }
+        setDatos(orden)
+    }
+
     return (
+        <>
         <div className='cart-items-null'>
             {cartItems.length === 0 &&
                 <div>
@@ -27,22 +38,27 @@ const CartContainer = () => {
                     ></img>
                     <p className='mod-carrito'>{item?.modelo}</p>
                     <div className='botonesCart'>
-                    <button className="botonR" onClick={() => handleRemoveProduct(item, 1)}>-</button>
-                    <button className="botonA" onClick={() => handleAddProduct(item, 1)}>+</button>
+                        <button className="botonR" onClick={() => handleRemoveProduct(item, 1)}>-</button>
+                        <button className="botonA" onClick={() => handleAddProduct(item, 1)}>+</button>
                     </div>
                     <div className='desc-carrito'>
-                    ${item?.precio} - Cantidad: {item.quantity}
+                        ${item?.precio} - Cantidad: {item.quantity}
                     </div>
                     <div className='subtotal'>SUBTOTAL // {item?.precio * item.quantity}</div>
+                    <button className='removeP'>x remove</button>
                 </div>
             ))}
             {cartItems.length !== 0 &&
             <>
             <button className="botonC" onClick= {handleCartClearance}> Eliminar todo del carrito!</button>
             <div><b>TOTAL</b> / ${totalPrice}</div>
+            <Link to='/checkout'>
+                <button className='backToP' onClick={() => {removeButton(); objectHandler()}}>Checkout</button>
+            </Link>
             </>
             }
         </div>
+        </>
     )
 }
 

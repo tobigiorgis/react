@@ -11,7 +11,7 @@ import data from '../src/data/data'
 import db from '../src/firebase/firebase'
 import { collection, addDoc } from '@firebase/firestore';
 import { fileUpload } from '../src/firebase/fileUpload'
-
+import OrderContainer from './components/OrderContainer';
 
 
 function App() {
@@ -37,6 +37,7 @@ function App() {
         <Route path= '/productos' element={<ItemListContainer/>} />
         <Route path='/producto/:itemId' element={<ItemDetailContainer />} />
         <Route path='/cart' element={<CartContainer />}/>
+        <Route path='/checkout' element={<OrderContainer />} />
       </Routes>
       </ CartContextProvider>
       </BrowserRouter>

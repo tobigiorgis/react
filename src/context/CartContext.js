@@ -36,6 +36,14 @@ export const CartContextProvider = ({children}) => {
         }
     }
 
+    const removeButton = (product) => {
+        setCart(cart - 1)
+        setCartItems(cartItems.filter((item) => item.id !== product.id))
+    }
+
+
+const [datos, setDatos] = useState([])
+
     const handleCartClearance = () => {
         setCartItems([])
         setCart(0)
@@ -50,6 +58,9 @@ export const CartContextProvider = ({children}) => {
                 setCartItems,
                 handleRemoveProduct,
                 handleCartClearance,
+                removeButton,
+                datos,
+                setDatos
                 }
             }>
                 { children }
