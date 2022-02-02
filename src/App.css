@@ -465,7 +465,6 @@ span{
   height: 2vw;
   color: white;
   background-color: black;
-  /* margin-right: -7vw; */
   border-radius: 5px;
   font-size: 20px;
   justify-content: center;
@@ -566,17 +565,16 @@ span{
 
 .orderContainer{
   margin-top: 20vh;
+  width: 50vw;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-content: center;
+  flex-direction: column;
 }
 
 .divLabels{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-content: center;
+  align-items: center;
 }
 
 .divInputs{
@@ -587,25 +585,29 @@ span{
 }
 
 .label{
-  margin: 1vw;
-  width: 10vw;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 15vw;
+  margin-top: 2vw;
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+  color: gray;
 }
 .input{
-  margin: 1vw;
-  width: 10vw;
-}
-.aWsp{
+  margin-top: 1vw;
+  border-radius: 5px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  width: 40vw;
+  height: 4vh;
+  box-shadow: inset 0 2px 2px hsla(0, 0%, 0%, 0.1);
 }
 
 .orderPage{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 .pAviso{
