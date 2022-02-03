@@ -63,9 +63,6 @@ const OrderContainer = () => {
                 </form>
             <p className='pAviso'>// Al clickear "Finalizar compra" sera redirigdo a WhatsApp para realizar el pago de la orden.</p>
             <button className='terminar' onClick={datosHandler}>Finalizar compra</button>
-            { done == true ? <p>Tu ID de compra es: {id}</p>
-            : <p></p>
-            }
         </div>
     )
 }
